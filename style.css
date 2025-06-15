@@ -1,0 +1,340 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap");
+
+:root {
+  /* Main Background - body background color */
+  --body-bg: #deefe7;
+
+  /* Header Background - use for navbars, top sections */
+  --header-bg: #b4bec9;
+
+  /* Primary Brand Color - buttons, links, accents */
+  --primary-color: #159a9c;
+
+  /* Main Text Color - readable text on light background */
+  --text-color: #002333;
+
+  /* Accent Color - alerts, emphasis text, badges */
+  --accent-color: #7a3838;
+
+  /* Muted Color - borders, outlines, subtle text */
+  --muted-color: #2f353b;
+}
+
+.dark-theme {
+  /* Main Background - body background in dark mode */
+  --body-bg: #002333;
+
+  /* Header Background - darker header section in dark theme */
+  --header-bg: #7a3838;
+
+  /* Primary Brand Color - same for dark/light, keeps branding */
+  --primary-color: #159a9c;
+
+  /* Text Color - light text on dark background */
+  --text-color: #deefe7;
+
+  /* Accent Color - toned highlight for dark theme */
+  --accent-color: #b4bec9;
+
+  /* Muted Color - subtle lines, borders, secondary text */
+  --muted-color: #b4bec9;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Lato", sans-serif;
+  color: var(--text-color);
+  transition: all 0.3s ease-in-out;
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  background: var(--body-bg);
+  height: 100vh;
+  max-height: 1000px;
+  width: min(100%, 800px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 0 auto;
+  overflow: hidden;
+  position: relative;
+}
+.overlay {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+  transition: all 0.3s ease;
+}
+
+.loading {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+
+.loading i {
+  font-size: 80px;
+  animation: spin 3s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+header {
+  background: var(--header-bg);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+.logo {
+  font-size: 25px;
+  font-weight: 500;
+  line-height: 1;
+}
+
+.top-nav {
+  display: flex;
+  gap: 10px;
+}
+
+button {
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-size: 1rem;
+  padding: 3px;
+
+  border-radius: 5px;
+}
+button:hover {
+  background: var(--primary-color);
+}
+button:active {
+  background: var(--accent-color);
+}
+
+button.active {
+  background: var(--primary-color);
+}
+
+.top-nav i {
+  font-size: 25px;
+  line-height: 1;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--header-bg);
+}
+nav button {
+  padding: 10px;
+}
+
+nav i {
+  font-size: xx-large;
+  line-height: 1;
+}
+main {
+  width: 100%;
+  height: calc(100vh - var(--header-height) - var(--nav-height));
+}
+h1 {
+  font-weight: 400;
+  font-size: 25px;
+}
+p {
+  font-size: 1rem;
+}
+
+.xl-text {
+  font-size: 30px;
+  font-weight: 600;
+}
+
+section {
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.home h2.greeting {
+  display: flex;
+  flex-direction: column;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 1;
+}
+
+.home .xl-text {
+  color: var(--primary-color);
+}
+
+.quote {
+  font-style: italic;
+  font-size: 20px;
+  color: var(--accent-color);
+}
+.quick-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.quick-actions button {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-align: left;
+  padding: 10px;
+  font-size: 1.2rem;
+  color: var(--muted-color);
+  border: 1px solid var(--muted-color);
+  border-radius: 5px;
+}
+
+.quick-actions button:hover {
+  color: var(--body-bg);
+  background: var(--accent-color);
+}
+
+.quick-actions button i {
+  font-size: 25px;
+  color: inherit;
+}
+
+.transaction-type {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+.transaction-type button {
+  padding: 10px;
+  font-size: 1.2rem;
+  color: var(--muted-color);
+  border: 1px solid var(--muted-color);
+  border-radius: 5px;
+}
+
+.trans-form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+input,
+select {
+  padding: 10px;
+  font-size: 1.2rem;
+  border: 1px solid var(--muted-color);
+  border-radius: 5px;
+  background: transparent;
+  font-size: 1.2rem;
+  color: var(--primary-color);
+}
+.btn-container {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.btn-container button {
+  padding: 5px 10px;
+  font-size: 1.2rem;
+  color: var(--muted-color);
+  border: 1px solid var(--primary-color);
+  border-radius: 5px;
+}
+
+button[type="submit"] {
+  background: var(--primary-color);
+  color: var(--body-bg);
+}
+
+::placeholder {
+  color: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+.receipts-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.receipt {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: 10px;
+  border: 1px solid var(--muted-color);
+  border-radius: 5px;
+}
+.receipt p {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 1.2rem;
+}
+.receipt .btn-container {
+  justify-content: flex-start;
+}
+
+.accounts form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+}
+.accounts-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 10px;
+}
+.account {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: 10px;
+  border: 1px solid var(--muted-color);
+  border-radius: 5px;
+}
+.account p {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 1.2rem;
+}
+.account .btn-container {
+  justify-content: flex-start;
+}

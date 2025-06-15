@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.boxicons.com/fonts/basic/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>MoValue</title>
+  </head>
+  <body class="dark-theme">
+    <div class="overlay" id="overlay"></div>
+    <div class="loading"><i class="bx bx-loader-lines bx-spin"></i></div>
+    <header>
+      <div class="logo">MoValue</div>
+      <div class="top-nav">
+        <button id="lightthemebtn"><i class="bx bx-sun-bright"></i></button>
+        <button id="darkthemebtn"><i class="bx bx-moon"></i></button>
+        <button id="profilebtn"><i class="bx bx-user"></i></button>
+      </div>
+    </header>
+    <!-- calculate the height of header and nav using js then set them as varibles to use in css -->
+
+    <main>
+      <section class="home" id="home" style="display: none">
+        <h1>Home</h1>
+        <h2 class="greeting">
+          Good morning👋🏽, <span class="xl-text">Enoch Malamba</span>
+        </h2>
+        <p class="quote">
+          "The future belongs to those who believe in the beauty of their
+          dreams."
+          <br />
+          - Eleanor Roosevelt
+        </p>
+        <h3>Quick actions</h3>
+        <div class="quick-actions">
+          <button><i class="bx bx-plus"></i>Register a New Transaction</button>
+          <button><i class="bx bx-receipt"></i>See Receipts</button>
+          <button>
+            <i class="bx bx-wallet-alt"></i>View and Manage Accounts
+          </button>
+          <button><i class="bx bx-file-report"></i> See Reports</button>
+        </div>
+      </section>
+
+      <section class="receipts" id="receipts" style="display: none">
+        <h1>Receipts</h1>
+        <p>
+          These are your transaction receipts from both earnings and expenses
+        </p>
+        <div class="receipts-container">
+          <div class="receipt">
+            <p><strong>Date and Time:</strong> 12/12/2022, 10:00 AM</p>
+            <p><strong>TransID:</strong> 1793894390</p>
+            <p><strong>Type:</strong> Earning</p>
+            <p><strong>Amount:</strong> MK5,000</p>
+            <p><strong>Cause:</strong> Salary</p>
+            <p><strong>Account Name:</strong> Main Account</p>
+            <div class="btn-container">
+              <button class="edit">Edit</button>
+              <button class="delete">Delete</button>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="transactions" id="transactions" style="display: none">
+        <h1>Register a New Transaction</h1>
+        <p>Select the type of transaction</p>
+        <div class="transaction-type">
+          <button class="earning">Earning</button>
+          <button class="expense">Expense</button>
+        </div>
+        <div class="trans-form" id="trans-form">
+          <h2 class="xl-text" id="trans-type-text">Earning</h2>
+          <input type="text" name="amount" id="amount" placeholder="Amount" />
+          <select name="cause" id="cause_selector">
+            <option disabled selected>-- Select Cause --</option>
+            <option value="cause1">Cause 1</option>
+            <option value="cause2">Cause 2</option>
+            <option value="cause3">Cause 3</option>
+          </select>
+          <select name="account" id="account_selector">
+            <option disabled selected>-- Select Account --</option>
+            <option value="account1">Account 1</option>
+            <option value="account2">Account 2</option>
+            <option value="account3">Account 3</option>
+          </select>
+          <div class="btn-container">
+            <button type="reset" class="reset">Cancel</button>
+            <button type="submit" class="submit">Submit</button>
+          </div>
+        </div>
+      </section>
+      <section class="accounts" id="accounts">
+        <h1>Accounts</h1>
+        <p>Manage your accounts</p>
+        <form action="">
+          <h2 class="xl-text">Create New Account</h2>
+          <input
+            type="text"
+            name="account_name"
+            id="account_name"
+            placeholder="Account Name"
+          />
+          <input
+            type="number"
+            name="account_balance"
+            id="account_balance"
+            placeholder="Account Balance"
+          />
+          <div class="btn-container">
+            <button type="reset" class="reset">Cancel</button>
+            <button type="submit" class="submit">Add Account</button>
+          </div>
+        </form>
+        <div class="accounts-container">
+          <div class="account">
+            <p><strong>Account Name:</strong> Main Account</p>
+            <p><strong>Balance:</strong> MK5,000</p>
+            <div class="btn-container">
+              <button class="edit">Edit</button>
+              <button class="delete">Delete</button>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="reports" id="reports" style="display: none">
+        <h1>Reports</h1>
+        <h2 style="font-size: 50px">Reports is coming soon</h2>
+      </section>
+    </main>
+    <nav>
+      <button><i class="bx bx-home"></i></button>
+      <button><i class="bx bx-receipt"></i></button>
+      <button><i class="bx bx-plus"></i></button>
+      <button><i class="bx bx-wallet-alt"></i></button>
+      <button><i class="bx bx-file-report"></i></button>
+    </nav>
+  </body>
+  <script src="js/main.js"></script>
+  <script src="js/transactions.js"></script>
+  <script>
+    const headerHeight = document.querySelector("header").offsetHeight;
+    const navHeight = document.querySelector("nav").offsetHeight;
+    document.documentElement.style.setProperty(
+      "--header-height",
+      headerHeight + "px"
+    );
+    document.documentElement.style.setProperty(
+      "--nav-height",
+      navHeight + "px"
+    );
+  </script>
+</html>
