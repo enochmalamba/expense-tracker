@@ -2,6 +2,17 @@ const lightThemeBtn = document.querySelector("#lightthemebtn");
 const darkThemeBtn = document.querySelector("#darkthemebtn");
 const sections = document.querySelectorAll("section");
 const navLinks = document.querySelectorAll("nav button");
+const quickLinks = document.querySelectorAll(".quick-actions button");
+const quotePara = document.getElementById("quote");
+try {
+  const jsonQuotesLinks = document.getElementById("json-quotes").textContent;
+  console.log("Raw JSON string:", jsonQuotesLinks);
+
+  const quotesArray = JSON.parse(jsonQuotesLinks);
+  console.log("Parsed array:", quotesArray);
+} catch (error) {
+  console.error("Error parsing JSON:", error);
+}
 
 navLinks.forEach((link, index) => {
   link.addEventListener("click", () => {
@@ -17,6 +28,15 @@ navLinks.forEach((link, index) => {
       link.classList.remove("active");
     });
     link.classList.add("active");
+  });
+});
+
+quickLinks.forEach((link, index) => {
+  link.addEventListener("click", () => {
+    sections.forEach((section) => {
+      section.style.display = "none";
+    });
+    sections[index + 1].style.display = "flex";
   });
 });
 loadTheme();
